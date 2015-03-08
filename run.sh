@@ -1,17 +1,42 @@
 #!/usr/bin/env bash
 
-# example of the run script for running the word count
 
-# first I'll load all my dependencies
-apt-get install python-pandas
-
-# next I'll make sure that all my programs (written in Python in this example) have the proper permissions
-chmod a+x my_word_count.py
-chmod a+x my_running_median.py
-
-# finally I'll execute my programs, with the input directory wc_input and output the files in the directory wc_output
-python my_word_count.py ./wc_input ./wc_output/wc_result.txt
-python my_running_median.py ./wc_input ./wc_output/med_result.txt
+info() {
+	echo ""
+	echo "---------------------------"
+	echo $1
+	echo "---------------------------"
+}
 
 
+# Checking Scala version.
+info "Chekcing Scala. (2.11)"
+scala -version
 
+# Entering src dir.
+info "Entering src/ dir."
+cd src/
+
+
+# Checking Permissions.i
+info "Checking permission."
+chmod a+x wordCount.scala
+chmod a+x util.scala
+chmod a+x runningMedian.scala
+
+
+# Compiling files.
+info "Compiling files."
+scalac util.scala wordCount.scala runningMedian.scala 
+
+
+# Executing Word Count
+info "Executing Word Count":
+scala cc.wordcount.WordCount # "../wc_input/stephen-hawking-quotes" "hawking-quotes.output"
+
+# Executing Medians:
+info "Executing Running Medians:"
+scala cc.median.RunningMedian
+
+
+info "Done."
