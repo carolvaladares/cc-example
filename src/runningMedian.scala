@@ -11,8 +11,6 @@ import java.io.File
 import java.io.PrintStream
 
 
-
-
 /**
  * Class for running the median of words for each line in a text file.
  *
@@ -101,7 +99,7 @@ class RunningMedian {
     // Combine all files from the given directory in sorted order.
     info.print("Getting and combining input files' stream...")
     val filesStream: Iterator[String] = new File(dir, folder).listFiles     // Get the dir files.
-        .sortBy(f => (f.getName))                     // Sort the files.
+        .sortBy(f => (f.getName))                                           // Sort the files.
         .foldLeft(Iterator[String]())( _ ++ Source.fromFile(_).getLines())  // Combine their lines.
 
     // Calculates the lines medians.

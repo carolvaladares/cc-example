@@ -46,10 +46,11 @@ class WordCount {
 
   /**
    * Helper function to count the word occurences from a list of sentences.
+   * @param lines The lines to be processed.
    * @private
    */
   private def wordCount(lines: Iterator[String]) = {
-    lines.flatMap(text.clean(_).split("\\W+"))          // Lazily turns lines into a flat map of words.
+    lines.flatMap(text.clean(_).split("\\W+"))      // Lazily turns lines into a flat map of words.
          .foldLeft(Map.empty[String, Int]){         // Counts ocurrences folding over the words.
           (count, word) => count + (word -> (count.getOrElse(word, 0) + 1))
          } 
@@ -79,6 +80,7 @@ class WordCount {
       info.print("Updating Counter...")
       update(currentMap)
   }
+
 
   /**
    * Lazily reads a set of input files from a directory
