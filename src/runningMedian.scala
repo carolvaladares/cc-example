@@ -84,10 +84,10 @@ class RunningMedian {
 	 * @return a list containing the medians of each line.
 	 */
 	private def runMedian(lines: Iterator[String]): List[Double] = {
-		// For each non empty line, calculates the current median up to it.
+		// For each line, calculates the current median up to it.
 		// Once all lines are processed, it returns a list representation of the medians
 		// per line.
-		lines.filter(!_.isEmpty).map(x => getMedian(x)).toList
+		lines.map(x => getMedian(x)).toList
 	}
 
 
