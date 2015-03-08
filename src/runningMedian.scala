@@ -1,6 +1,6 @@
 package cc.median
 
-import cc.util.{text, info, arguments, SortedList}
+import cc.util.{text, info, SortedList}
 
 import scala.collection.immutable.ListMap
 import scala.collection.mutable

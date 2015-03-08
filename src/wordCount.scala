@@ -1,6 +1,6 @@
 package cc.wordcount 
 
-import cc.util.{text, info, arguments}
+import cc.util.{text, info}
 
 import scala.collection.immutable.ListMap
 import scala.collection.mutable
